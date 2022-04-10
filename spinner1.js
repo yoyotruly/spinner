@@ -1,5 +1,6 @@
-setTimeout(() => process.stdout.write("\r|  "), 100);
-setTimeout(() => process.stdout.write("\r/  "), 300);
-setTimeout(() => process.stdout.write("\r-  "), 500);
-setTimeout(() => process.stdout.write("\r\\  "), 700);
-setTimeout(() => process.stdout.write("\r|  "), 900);
+const spinner = "|/-\\|";
+let delay = 100;
+for (const spin of spinner) {
+  setTimeout(() => process.stdout.write(`\r${spin}  `), delay);
+  delay += 200;
+};
