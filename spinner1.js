@@ -1,6 +1,8 @@
-const spinner = "|/-\\|";
-let delay = 100;
-for (const spin of spinner) {
+const baseSpinner = ["/", "-", "\\", "|"];
+
+const spinTimes = 5;
+const spinner = [].concat(...Array(spinTimes).fill(baseSpinner));
+spinner.map((spin, index) => {
+  const delay = 100 + index * 200;
   setTimeout(() => process.stdout.write(`\r${spin}  `), delay);
-  delay += 200;
-};
+});
