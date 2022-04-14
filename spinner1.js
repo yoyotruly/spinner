@@ -1,8 +1,14 @@
-const baseSpinner = ["/", "-", "\\", "|"];
+const spinner = (numOfRuns) => {
+  let positions = ['\r| ', '\r/ ', '\r- ', '\r\\ ']
 
-const spinTimes = 5;
-const spinner = [].concat(...Array(spinTimes).fill(baseSpinner));
-spinner.map((spin, index) => {
-  const delay = 100 + index * 200;
-  setTimeout(() => process.stdout.write(`\r${spin}  `), delay);
-});
+  for (let n = 0; n <= numOfRuns; n++)
+  setTimeout(() => {
+    for (let i = 0; i < positions.length; i++) {
+      setTimeout(() => {
+        process.stdout.write(positions[i]);
+      }, 200 + i * 200)
+    }
+  }, n * 800)
+}
+
+spinner(5);
